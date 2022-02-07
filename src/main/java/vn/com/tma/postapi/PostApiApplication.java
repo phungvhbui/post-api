@@ -1,13 +1,13 @@
-package vn.com.tma.blogapi;
+package vn.com.tma.postapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BlogApiApplication {
+public class PostApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BlogApiApplication.class, args);
+		SpringApplication.run(PostApiApplication.class, args);
 	}
 
 }

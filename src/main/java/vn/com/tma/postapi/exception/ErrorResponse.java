@@ -1,4 +1,4 @@
-package vn.com.tma.blogapi.exception;
+package vn.com.tma.postapi.exception;
 
 import java.util.Date;
 

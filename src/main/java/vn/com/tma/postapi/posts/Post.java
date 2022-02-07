@@ -1,4 +1,4 @@
-package vn.com.tma.blogapi.posts;
+package vn.com.tma.postapi.posts;
 
 import org.hibernate.annotations.CreationTimestamp;
 

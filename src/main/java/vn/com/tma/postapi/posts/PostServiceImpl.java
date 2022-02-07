@@ -1,19 +1,17 @@
-package vn.com.tma.blogapi.posts;
+package vn.com.tma.postapi.posts;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import vn.com.tma.blogapi.common.CommonService;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PostService implements CommonService<Post> {
+public class PostServiceImpl implements PostService {
 	private final PostRepository postRepository;
 
 	@Autowired
-	public PostService(PostRepository postRepository) {
+	public PostServiceImpl(PostRepository postRepository) {
 		this.postRepository = postRepository;
 	}
 

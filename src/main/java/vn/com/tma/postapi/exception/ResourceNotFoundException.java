@@ -1,4 +1,4 @@
-package vn.com.tma.blogapi.exception;
+package vn.com.tma.postapi.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

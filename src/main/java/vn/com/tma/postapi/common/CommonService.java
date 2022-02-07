@@ -1,4 +1,4 @@
-package vn.com.tma.blogapi.common;
+package vn.com.tma.postapi.common;
 
 import java.util.List;
 

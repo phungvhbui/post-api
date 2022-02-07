@@ -1,4 +1,4 @@
-package vn.com.tma.blogapi.posts;
+package vn.com.tma.postapi.posts;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
