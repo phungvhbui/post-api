@@ -24,6 +24,14 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
+	public Comment addToPost(long postId, Comment comment) {
+		Post post = new Post();
+		post.setPostId(postId);
+		comment.setPost(post);
+		return commentRepository.save(comment);
+	}
+
+	@Override
 	public List<Comment> getAll() {
 		return commentRepository.findAll();
 	}

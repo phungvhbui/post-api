@@ -53,6 +53,7 @@ public class PostServiceImpl implements PostService {
         post.setTitle(object.getTitle());
         post.setContent(object.getContent());
         post.setCreatedAt(object.getCreatedAt());
+		post.setComments(object.getComments());
 
         return postRepository.save(post);
     }

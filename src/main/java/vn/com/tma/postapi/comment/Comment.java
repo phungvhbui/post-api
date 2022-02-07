@@ -1,11 +1,11 @@
 package vn.com.tma.postapi.comment;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import vn.com.tma.postapi.posts.Post;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Objects;
 
 @Entity
 @Table(name = "comments")
@@ -20,9 +20,10 @@ public class Comment {
 
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "create_at", nullable = false)
+	@Column(name = "create_at", nullable = false, updatable = false)
 	private Date createAt;
 
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "post_id")
 	private Post post;
