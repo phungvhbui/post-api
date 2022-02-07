@@ -2,7 +2,10 @@ package vn.com.tma.postapi.posts;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import vn.com.tma.postapi.comment.Comment;
 
+import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,7 +31,17 @@ public class PostServiceImpl implements PostService {
 
 	@Override
 	public Post add(Post object) {
-		return postRepository.save(object);
+		Post post = new Post();
+		post.setTitle(object.getTitle());
+		post.setContent(object.getContent());
+		post.setCreatedAt(object.getCreatedAt());
+		List<Comment> comments = new ArrayList<>();
+		object.getComments().forEach(comment -> {
+			comment.setPost(post);
+			comments.add(comment);
+		});
+		post.setComments(comments);
+		return postRepository.save(post);
 	}
 
 	@Override

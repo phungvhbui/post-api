@@ -1,57 +1,77 @@
 package vn.com.tma.postapi.posts;
 
 import org.hibernate.annotations.CreationTimestamp;
+import vn.com.tma.postapi.comment.Comment;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "posts")
 public class Post {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "post_id")
+	private Long postId;
 
-    @Column(name = "title", nullable = false)
-    private String title;
+	@Column(name = "title", nullable = false)
+	private String title;
 
-    @Column(name = "content", nullable = false, columnDefinition = "TEXT")
-    private String content;
+	@Column(name = "content", nullable = false, columnDefinition = "TEXT")
+	private String content;
 
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created_at", nullable = false)
-    private Date createdAt;
+	@CreationTimestamp
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "created_at", nullable = false)
+	private Date createdAt;
 
-    public Long getId() {
-        return id;
-    }
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "post_id")
+	private List<Comment> comments = new ArrayList<>();
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Long getPostId() {
+		return postId;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public void setPostId(Long postId) {
+		this.postId = postId;
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public String getContent() {
-        return content;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+	public String getContent() {
+		return content;
+	}
 
-    public Date getCreatedAt() {
-        return createdAt;
-    }
+	public void setContent(String content) {
+		this.content = content;
+	}
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public void addComment(Comment comment) {
+		comments.add(comment);
+	}
 }
